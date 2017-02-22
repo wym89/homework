@@ -1,23 +1,21 @@
-var fs = require('fs');
+'use strict';
 
+const fs = require('fs'),
+    path = require('path');
 
+module.exports = function (dir, ext, callback) {
+    ext = '.' + ext;
 
-    module.exports = function(dir, ext, callback){
-
-            readfile = fs.readdir(dir, function callback(err, list) {
+    fs.readdir(dir, (err, files) => {
         if (err) {
-            throw err;
+            callback(err);
+            return;
         }
-            
 
-        filteredlist = list.filter(function (file) {
-            return file.substr(file.lastIndexOf('.') ) === '.' + ext;
-        });
+        callback(null, files.filter(f => path.extname(f) === ext));
+    });
+};
 
-            });
-
-        return filteredlist;
-    };
 
        
 
