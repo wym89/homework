@@ -1,0 +1,30 @@
+{{#posts}}
+<div id="{{_id}}">
+    <h2>{{title}}</h2>
+    <h3>by {{author}} at {{date}}</h3>
+    <div>{{content}}</div>
+    in posts foreach
+    {{#comments}}
+        in comments for each
+        <div class="comment">
+            <div>{{content}}</div>
+            <div class="attribution">Posted by {{author}} at {{date}}</div>
+        </div>
+    {{/comments}}
+</div>
+<button class="addComments" >add comment</button>
+<div class="addCommentsForm" id="{{mm_id}}">
+    <form class="commentForm" id="{{commentform_id}}">
+        <div>
+            Title:
+            <input type="text" name="name" placeholder="Enter comment title"/>
+        </div>
+        <div>
+            comment:
+            <textarea name="comment" placeholder="Enter comment content"></textarea>
+        </div>
+        <input type="hidden" name="id" value="{{_id}}">
+        <button class="commentFormSumbit" id="{{formsubmit_id}}">Submit</button>
+    </form>
+</div>
+{{/posts}}

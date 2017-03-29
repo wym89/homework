@@ -9,8 +9,10 @@ module.exports = function (req, res, next) {
         if(err){
             next();
         }
+       // console.log('in readfile ');
         res.end(data);
-
+        //console.log('after write');
+         next();
     })
     
 }

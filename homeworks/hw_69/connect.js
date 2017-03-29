@@ -15,7 +15,7 @@ app.use('/hw',(request, response, next) => {
 
 
 app.use('/foo',(request, response, next) => {
-    fs.rea
+    //fs.rea
     
 }); 
 
